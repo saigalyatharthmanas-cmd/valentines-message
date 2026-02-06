@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Muskan 🧸💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ff4d6d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive;
+    overflow: hidden;
+  }
+
+  .card {
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    width: 360px;
+    position: relative;
+  }
+
+  h1 {
+    color: #ff3366;
+    margin-bottom: 5px;
+  }
+
+  .from {
+    color: #ff4d6d;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    font-size: 18px;
+  }
+
+  .teddy img {
+    width: 130px;
+    margin: 10px 0;
+    animation: float 2s infinite ease-in-out;
+  }
+
+  .photo img {
+    width: 150px;
+    border-radius: 15px;
+    margin: 10px 0;
+    box-shadow: 0 8px 20px rgba(255,0,100,0.4);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  button {
+    padding: 12px 28px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  #yesBtn {
+    background: #ff3366;
+    color: white;
+  }
+
+  #noBtn {
+    background: #ffe6eb;
+    color: #ff3366;
+    position: absolute;
+  }
+
+  .heart {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    animation: hearts 5s linear infinite;
+  }
+
+  @keyframes hearts {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-600px); opacity: 0; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Hey Muskan 🧸💖</h1>
+  <div class="from">— from your hubby 🧸💌</div>
+
+  <div class="teddy">
+    <img src="https://cdn-icons-png.flaticon.com/512/477/477406.png" alt="Teddy">
+  </div>
+
+  <!-- YOUR PHOTO -->
+  <div class="photo">
+    <img src="photo.jpeg" alt="Our Photo">
+  </div>
+
+  <p>Will you be my Valentine? 🧸💕</p>
+
+  <button id="yesBtn" onclick="yesClicked()">Yes 🧸💖</button>
+  <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
+</div>
+
+<!-- 🎶 BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bgMusic");
+
+  function yesClicked() {
+    music.volume = 0.6;   // adjust volume (0.1 to 1)
+    music.play();        // plays because user clicked
+
+    document.body.innerHTML = `
+      <div style="
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+        background: linear-gradient(135deg, #ff4d6d, #ffb6c1);
+        color:white;
+        font-family:'Comic Sans MS', cursive;
+        text-align:center;
+        padding:20px;">
+        
+        <h1>Yayyyyy Doll!! 🧸💖</h1>
+
+        <p style="font-size:22px; max-width:500px;">
+          Thank you for choosing me 🥹❤️<br><br>
+          Every smile of yours makes my heart happy 🧸<br>
+          I promise to love you, support you,<br>
+          and hold you forever 🧸💖<br><br>
+          Happy Valentine’s Day, my love ❤️ I love you so much Muskan!!
+        </p>
+
+        <p>— forever yours, <b>your hubby</b> 🧸💌</p>
+      </div>
+    `;
+  }
+
+  function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
+    noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
+  }
+
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "0";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }, 500);
+</script>
+
+</body>
+</html>
